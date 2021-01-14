@@ -21,7 +21,7 @@ export default class NetworkUtils {
 	 * @param {*} err Object: {response : {status = '', errors ; []}}
 	 */
 	static handleErros(err) {
-		const { response: { status = '', data: { errors = [] } = {} } = {} } = err;
+		const { response: { status = '' } = {} } = err;
 
 		const {
 			UNAUTHORIZED_MESSAGE,
@@ -36,7 +36,6 @@ export default class NetworkUtils {
 		} = networkConstants;
 
 		const errorObject = {
-			errors,
 			status,
 			errorMessage: GENERIC_ERROR, // default error Message
 		};

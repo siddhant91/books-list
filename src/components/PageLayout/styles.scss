@@ -1,0 +1,15 @@
+@import '../../styles/main.scss';
+
+.bokl-page-layout {
+	display: flex;
+	box-sizing: border-box;
+	&__main {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		overflow: hidden;
+	}
+	&__content {
+		padding: $bokl-spacing-3;
+	}
+}

@@ -1,0 +1,7 @@
+@import '../../styles/main.scss';
+.bokl-card {
+	background: $bokl-color-white;
+	border-radius: $bokl-spacing-2;
+	box-shadow: 0px 1px 6px 0px rgba($bokl-color-black, 0.1);
+	border-left: $bokl-spacing-2 solid $bokl-color-orange;
+}

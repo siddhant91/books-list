@@ -1,11 +1,16 @@
 // Components
 import Home from './pages/home';
 
+// Providers
+import { AppProvider } from './contexts/AppContext';
+
 function App() {
 	return (
-		<div className="App">
-			<Home />
-		</div>
+		<AppProvider>
+			<div className="App">
+				<Home />
+			</div>
+		</AppProvider>
 	);
 }
 

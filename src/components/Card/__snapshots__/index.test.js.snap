@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bokl-card"
+  >
+     this is a Card
+  </div>
+</DocumentFragment>
+`;

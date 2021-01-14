@@ -1,0 +1,47 @@
+@import '../../styles/main.scss';
+
+.bokl-button-component {
+	border-radius: $bokl-spacing-1;
+	border: 1px solid $bokl-color-purple;
+	//  text-align: center;
+	padding: $bokl-spacing-2;
+	font-size: $bokl-body-font-size-medium;
+	font-family: $bokl-font-family-secondary;
+	font-weight: $bokl-font-weight-bold;
+	cursor: pointer;
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	min-width: 200px;
+
+	&.primary {
+		background-color: $bokl-color-purple;
+		color: $bokl-color-white;
+		.bokl-icon {
+			path {
+				fill: $bokl-color-white;
+			}
+		}
+	}
+	&.secondary {
+		color: $bokl-color-purple;
+		background-color: $bokl-color-white;
+	}
+	&.disabled {
+		border-color: $bokl-color-grey-5;
+		background-color: $bokl-color-grey-5;
+		color: $bokl-color-grey-3;
+		cursor: not-allowed;
+	}
+
+	&.large {
+		padding: $bokl-spacing-3 20px;
+	}
+	&.medium {
+		padding: $bokl-spacing-2;
+	}
+	&.small {
+		padding: 6px 20px;
+		min-width: 100px;
+	}
+}

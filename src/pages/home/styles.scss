@@ -1,4 +1,9 @@
 @import '../../styles/main.scss';
 
 .bokl-homepage {
+	&--content {
+		&__main {
+			margin-top: $bokl-spacing-5;
+		}
+	}
 }

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bokl-text-input"
+  >
+    <label
+      class="d-flex bokl-text-input--label"
+      for="text"
+    >
+      <span>
+        <i
+          aria-hidden="true"
+          class="fa fa-search"
+        />
+      </span>
+      <input
+        aria-label="TextInput"
+        aria-required="false"
+        class=""
+        data-label-key="text"
+        data-testid="TextInput"
+        id="text"
+        type="search"
+        value="value"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;

@@ -1,6 +1,4 @@
 export default {
-	AUTH_TOKEN: 'token',
-	AUTH_HEADER: 'authorization',
 	UNAUTHORIZED_MESSAGE: 'You are unauthenticated, Kindly log in',
 	BAD_REQUEST_MESSAGE: 'Bad Request. Kindly check your Request Params/Payload',
 	FORBIDDEN_MESSAGE: 'You do not have acess to this content.',
