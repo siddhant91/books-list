@@ -12,7 +12,8 @@
 		overflow-x: hidden;
 		transition: 0.5s;
 		padding: $bokl-spacing-3;
-		box-shadow: 5px 0px 20px -10px #000000;
+		box-shadow: 5px 0px 20px -10px $bokl-color-black;
+		z-index: 1;
 		&.open {
 			width: 300px;
 		}
@@ -30,10 +31,13 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: 10;
+		z-index: 2;
 		background-color: $bokl-color-white;
 		box-shadow: 0 5px 20px -10px $bokl-color-black;
 		padding: $bokl-spacing-3;
+		@media only screen and (min-width: $bokl-breakpoint-desktop) {
+			padding-left: $bokl-spacing-5;
+		}
 		&--logo {
 			width: 100px;
 			height: 34px;
@@ -48,11 +52,14 @@
 		&.shift-left {
 			margin-left: 300px;
 		}
-		z-index: 1;
 	}
 	&__content {
 		margin-top: $bokl-spacing-8;
 		padding: $bokl-spacing-3;
+		@media only screen and (min-width: $bokl-breakpoint-desktop) {
+			padding-left: $bokl-spacing-5;
+		}
+
 		background-color: $bokl-color-white-1;
 	}
 }
