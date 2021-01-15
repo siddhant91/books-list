@@ -26,6 +26,7 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 					additionalClasses="text-left p-0 d-flex align-items-center mt-3"
 				>
 					<i className={`fa ${icon}`} aria-hidden="true" />
+
 					<span
 						className={clsx('bokl-page-layout__menu--item-title ', {
 							'd-flex justify-content-between align-items-center flex-grow-1': isMenuOpen,

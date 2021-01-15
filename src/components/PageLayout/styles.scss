@@ -49,6 +49,7 @@
 		flex-direction: column;
 		overflow: hidden;
 		margin-left: $bokl-spacing-9;
+		transition: margin-left 0.5s;
 		&.shift-left {
 			margin-left: 300px;
 		}
