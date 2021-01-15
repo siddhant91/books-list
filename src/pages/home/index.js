@@ -1,5 +1,4 @@
 // Network
-//  import NetworkUtils from '../../network';
 import { useContext, useState } from 'react';
 
 // Components
@@ -22,12 +21,25 @@ const Home = () => {
 	const resetSearchvalue = () => {
 		setSearchText('');
 	};
+	const menuItems = [
+		{
+			title: 'Content Management',
+			icon: '',
+			isAccordion: true,
+			accordionContent: [],
+		},
+		{
+			title: 'Courses',
+			icon: '',
+			isAccordion: false,
+		},
+	];
 	return (
 		<div className="bokl-homepage">
-			<PageLayout menuItems={[]}>
+			<PageLayout menuItems={menuItems}>
 				{loaderVisible && <Loader />}
 				<div className="bokl-homepage--content">
-					<div className="bokl-homepage--content__title d-flex justify-content-between">
+					<div className="bokl-homepage--content__title d-flex flex-column flex-lg-row justify-content-between">
 						<h1>Books</h1>
 						<Button>Create New Book</Button>
 					</div>

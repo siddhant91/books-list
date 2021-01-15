@@ -3,6 +3,20 @@
 .bokl-page-layout {
 	display: flex;
 	box-sizing: border-box;
+	&__header {
+		height: $bokl-spacing-8;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+		background-color: $bokl-color-white;
+		box-shadow: 0 5px 20px -10px $bokl-color-black;
+		&--logo {
+			width: 100px;
+			height: 34px;
+		}
+	}
 	&__main {
 		display: flex;
 		width: 100%;
@@ -10,6 +24,8 @@
 		overflow: hidden;
 	}
 	&__content {
+		margin-top: $bokl-spacing-8;
 		padding: $bokl-spacing-3;
+		background-color: $bokl-color-white-1;
 	}
 }

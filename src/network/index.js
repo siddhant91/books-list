@@ -103,15 +103,17 @@ export default class NetworkUtils {
 		/* eslint-disable consistent-return */
 		return new Promise((resolve, reject) => {
 			try {
-				if (this.memoizedData[url]) {
-					return resolve(this.memoizedData[url]);
+				const completeUrl = isExternal ? url : `${serverBaseUrl}/${url}`;
+
+				if (this.memoizedData[completeUrl]) {
+					return resolve(this.memoizedData[completeUrl]);
 				}
 				const headerObject = {
 					'content-type': 'application/json',
 				};
 				axios({
 					method,
-					url: isExternal ? url : `${serverBaseUrl}/${url}`,
+					url: completeUrl,
 					data,
 					params,
 					headers: headerObject,
@@ -123,7 +125,7 @@ export default class NetworkUtils {
 					.then((response) => {
 						const { data: responseData, status } = response;
 						if (memoizeResponse) {
-							this.memoizedData[url] = { responseData, status };
+							this.memoizedData[completeUrl] = { responseData, status };
 						}
 						return resolve({ responseData, status });
 					})

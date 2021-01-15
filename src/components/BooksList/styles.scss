@@ -1,0 +1,23 @@
+@import '../../styles/main.scss';
+.bokl-books-listing {
+	&--title {
+		color: $bokl-color-graphite;
+	}
+	&--list__card {
+		padding: $bokl-spacing-3;
+		margin: $bokl-spacing-3 $bokl-spacing-3 $bokl-spacing-3 0;
+		width: 100%;
+		@media only screen and (min-width: $bokl-breakpoint-desktop) {
+			width: 49%;
+		}
+		&--title {
+			color: $bokl-color-graphite;
+		}
+		&--details {
+			color: $bokl-color-grey-4;
+			&__label {
+				margin-right: $bokl-spacing-2;
+			}
+		}
+	}
+}
