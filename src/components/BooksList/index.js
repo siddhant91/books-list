@@ -1,51 +1,13 @@
-import { useEffect, useContext } from 'react';
-
-// Network
-import NetworkUtils from '../../network';
+import { arrayOf, shape } from 'prop-types';
 
 // Components
-import Card from '../Card';
 
-// Contexts
-import { AppContext } from '../../contexts/AppContext';
-import { BookContext } from '../../contexts/BookContext';
+import Card from '../Card';
 
 // Styles
 import './styles.scss';
 
-const BooksList = () => {
-	const [, setLoaderVisible] = useContext(AppContext);
-	const [booksList, setBooksList] = useContext(BookContext);
-
-	const getBooksList = async () => {
-		try {
-			setLoaderVisible(true);
-			const result = await NetworkUtils.makeApiRequest({
-				url: '',
-				params: {
-					q: 'kaplan test prep',
-				},
-			});
-
-			const { responseData } = result;
-			if (responseData) {
-				const { items = [] } = responseData;
-				if (items.length) {
-					setBooksList(items);
-				}
-			}
-		} catch (e) {
-			console.log(e);
-		} finally {
-			setLoaderVisible(false);
-		}
-	};
-	useEffect(() => {
-		if (!booksList.length) {
-			getBooksList();
-		}
-	}, []);
-
+const BooksList = ({ booksData }) => {
 	const getCardDetails = ({ label, value }) => {
 		return (
 			<p className="bokl-books-listing--list__card--details mb-1">
@@ -56,9 +18,9 @@ const BooksList = () => {
 	};
 
 	const getBookCards = () => {
-		console.log('getBookCards---', booksList);
-		if (booksList.length) {
-			const bookCards = booksList.map((book) => {
+		console.log('getBookCards---', booksData);
+		if (booksData.length) {
+			const bookCards = booksData.map((book) => {
 				const {
 					volumeInfo: { title, authors = [], publisher = '', publishedDate = '' } = {},
 				} = book;
@@ -87,6 +49,14 @@ const BooksList = () => {
 			</div>
 		</div>
 	);
+};
+
+BooksList.propTypes = {
+	booksData: arrayOf(shape({})),
+};
+
+BooksList.defaultProps = {
+	booksData: [],
 };
 
 export default BooksList;

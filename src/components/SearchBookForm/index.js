@@ -1,49 +1,14 @@
-// import clsx from 'clsx';
-// import { bool, func, node, oneOf, string } from 'prop-types';
-import { useContext } from 'react';
+import { func } from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-
-// Network
-import NetworkUtils from '../../network';
 
 // Components
 import TextInput from '../TextInput';
 
-// Contexts
-import { AppContext } from '../../contexts/AppContext';
-import { BookContext } from '../../contexts/BookContext';
-
 // Styles
 import './styles.scss';
 
-function SearchBookForm() {
-	const [, setLoaderVisible] = useContext(AppContext);
-	const [, setBooksList] = useContext(BookContext);
-	const getBooks = async ({ searchText }) => {
-		try {
-			setLoaderVisible(true);
-			const result = await NetworkUtils.makeApiRequest({
-				url: '',
-				params: {
-					q: searchText,
-				},
-			});
-
-			const { responseData } = result;
-			if (responseData) {
-				const { items = [] } = responseData;
-				if (items.length) {
-					setBooksList(items);
-				}
-			}
-		} catch (e) {
-			console.log(e);
-		} finally {
-			setLoaderVisible(false);
-		}
-	};
-
+function SearchBookForm({ getBooksList }) {
 	return (
 		<div className="bokl-search-form">
 			<Formik
@@ -54,7 +19,7 @@ function SearchBookForm() {
 					searchText: Yup.string().trim().required('please input to search'),
 				})}
 				onSubmit={(values) => {
-					getBooks(values);
+					getBooksList(values.searchText);
 				}}
 			>
 				{() => (
@@ -67,7 +32,9 @@ function SearchBookForm() {
 	);
 }
 
-SearchBookForm.propTypes = {};
+SearchBookForm.propTypes = {
+	getBooksList: func.isRequired,
+};
 
 SearchBookForm.defaultProps = {};
 

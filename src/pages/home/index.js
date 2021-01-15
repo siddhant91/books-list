@@ -1,5 +1,7 @@
+import { useContext, useEffect } from 'react';
+
 // Network
-import { useContext } from 'react';
+import NetworkUtils from '../../network';
 
 // Components
 import PageLayout from '../../components/PageLayout';
@@ -9,23 +11,57 @@ import BooksList from '../../components/BooksList';
 import SearchBookForm from '../../components/SearchBookForm';
 // Context
 import { AppContext } from '../../contexts/AppContext';
+import { BookContext } from '../../contexts/BookContext';
 // Styles
 import './styles.scss';
 
+const menuItems = [
+	{
+		title: 'Content Management',
+		icon: 'fa-window-maximize',
+		isAccordion: true,
+	},
+	{
+		title: 'Courses',
+		icon: 'fa-file',
+		isAccordion: false,
+	},
+];
+
 const Home = () => {
-	const [loaderVisible] = useContext(AppContext);
-	const menuItems = [
-		{
-			title: 'Content Management',
-			icon: 'fa-window-maximize',
-			isAccordion: true,
-		},
-		{
-			title: 'Courses',
-			icon: 'fa-file',
-			isAccordion: false,
-		},
-	];
+	const [loaderVisible, setLoaderVisible] = useContext(AppContext);
+	const [booksList, setBooksList] = useContext(BookContext);
+
+	const getBooksList = async (searchText) => {
+		try {
+			setLoaderVisible(true);
+			const result = await NetworkUtils.makeApiRequest({
+				url: '',
+				params: {
+					q: searchText || 'kaplan test prep',
+				},
+			});
+
+			const { responseData } = result;
+			if (responseData) {
+				const { items = [] } = responseData;
+				if (items.length) {
+					setBooksList(items);
+				}
+			}
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setLoaderVisible(false);
+		}
+	};
+
+	useEffect(() => {
+		if (!booksList.length) {
+			getBooksList();
+		}
+	}, []);
+
 	return (
 		<div className="bokl-homepage">
 			<PageLayout menuItems={menuItems}>
@@ -36,8 +72,8 @@ const Home = () => {
 						<Button>Create New Book</Button>
 					</div>
 					<div className="bokl-homepage--content__main">
-						<SearchBookForm />
-						<BooksList />
+						<SearchBookForm getBooksList={getBooksList} />
+						<BooksList booksData={booksList} />
 					</div>
 				</div>
 			</PageLayout>
