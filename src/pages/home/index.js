@@ -24,13 +24,12 @@ const Home = () => {
 	const menuItems = [
 		{
 			title: 'Content Management',
-			icon: '',
+			icon: 'fa-window-maximize',
 			isAccordion: true,
-			accordionContent: [],
 		},
 		{
 			title: 'Courses',
-			icon: '',
+			icon: 'fa-file',
 			isAccordion: false,
 		},
 	];

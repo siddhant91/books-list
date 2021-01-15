@@ -33,15 +33,15 @@
 		color: $bokl-color-grey-3;
 		cursor: not-allowed;
 	}
+	&.just-icon {
+		border: none;
+		background: none;
+	}
 
 	&.large {
 		padding: $bokl-spacing-3 20px;
 	}
 	&.medium {
 		padding: $bokl-spacing-2;
-	}
-	&.small {
-		padding: 6px 20px;
-		min-width: 100px;
 	}
 }

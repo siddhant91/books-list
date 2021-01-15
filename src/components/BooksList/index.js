@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useCallback } from 'react';
 
 // Network
 import NetworkUtils from '../../network';
@@ -8,6 +8,7 @@ import Card from '../Card';
 
 // Contexts
 import { AppContext } from '../../contexts/AppContext';
+
 // Styles
 import './styles.scss';
 
@@ -54,7 +55,7 @@ const BooksList = () => {
 		);
 	};
 
-	const getBookCards = () => {
+	const getBookCards = useCallback(() => {
 		if (booksList.length) {
 			const bookCards = booksList.map((book) => {
 				const {
@@ -75,7 +76,8 @@ const BooksList = () => {
 			return bookCards;
 		}
 		return <p>Sorry no books to Display</p>;
-	};
+	}, [booksList]);
+
 	return (
 		<div className="bokl-books-listing">
 			<h2 className="bokl-books-listing--title">All Books</h2>

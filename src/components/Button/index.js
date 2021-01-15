@@ -34,8 +34,8 @@ Button.propTypes = {
 	disabled: bool,
 	handleClick: func.isRequired,
 	additionalClasses: string,
-	appearance: oneOf(['primary', 'secondary', 'link']),
-	size: oneOf(['medium', 'large', 'small']),
+	appearance: oneOf(['primary', 'secondary', 'link', 'just-icon']),
+	size: oneOf(['medium', 'large', 'small', 'icon']),
 };
 
 Button.defaultProps = {
