@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useCallback } from 'react';
+import { useEffect, useContext } from 'react';
 
 // Network
 import NetworkUtils from '../../network';
@@ -8,13 +8,14 @@ import Card from '../Card';
 
 // Contexts
 import { AppContext } from '../../contexts/AppContext';
+import { BookContext } from '../../contexts/BookContext';
 
 // Styles
 import './styles.scss';
 
 const BooksList = () => {
-	const [booksList, setBooksList] = useState([]);
 	const [, setLoaderVisible] = useContext(AppContext);
+	const [booksList, setBooksList] = useContext(BookContext);
 
 	const getBooksList = async () => {
 		try {
@@ -24,7 +25,6 @@ const BooksList = () => {
 				params: {
 					q: 'kaplan test prep',
 				},
-				memoizeResponse: true,
 			});
 
 			const { responseData } = result;
@@ -55,7 +55,8 @@ const BooksList = () => {
 		);
 	};
 
-	const getBookCards = useCallback(() => {
+	const getBookCards = () => {
+		console.log('getBookCards---', booksList);
 		if (booksList.length) {
 			const bookCards = booksList.map((book) => {
 				const {
@@ -76,7 +77,7 @@ const BooksList = () => {
 			return bookCards;
 		}
 		return <p>Sorry no books to Display</p>;
-	}, [booksList]);
+	};
 
 	return (
 		<div className="bokl-books-listing">

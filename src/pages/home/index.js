@@ -1,12 +1,12 @@
 // Network
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 // Components
 import PageLayout from '../../components/PageLayout';
 import Loader from '../../components/Loader';
 import Button from '../../components/Button';
-import TextInput from '../../components/TextInput';
 import BooksList from '../../components/BooksList';
+import SearchBookForm from '../../components/SearchBookForm';
 // Context
 import { AppContext } from '../../contexts/AppContext';
 // Styles
@@ -14,13 +14,6 @@ import './styles.scss';
 
 const Home = () => {
 	const [loaderVisible] = useContext(AppContext);
-	const [searchText, setSearchText] = useState('');
-	const handleSearchChange = (e) => {
-		setSearchText(e.target.value);
-	};
-	const resetSearchvalue = () => {
-		setSearchText('');
-	};
 	const menuItems = [
 		{
 			title: 'Content Management',
@@ -43,13 +36,7 @@ const Home = () => {
 						<Button>Create New Book</Button>
 					</div>
 					<div className="bokl-homepage--content__main">
-						<TextInput
-							labelKey="Search For Books"
-							value={searchText}
-							placeholder="Search"
-							handleChange={handleSearchChange}
-							handleClearValue={resetSearchvalue}
-						/>
+						<SearchBookForm />
 						<BooksList />
 					</div>
 				</div>

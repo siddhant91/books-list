@@ -6,6 +6,7 @@ import LogoImage from '../../assets/images/Logo.png';
 
 // Compoents
 import Button from '../Button';
+
 // Styles
 import './styles.scss';
 

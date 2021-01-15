@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { bool, func, node, oneOf, string } from 'prop-types';
+import { bool, node, oneOf, string } from 'prop-types';
 import { useRef } from 'react';
+import { useField, useFormikContext } from 'formik';
 
 // Styles
 import './styles.scss';
@@ -9,25 +10,26 @@ function TextInput({
 	additionalClasses,
 	children,
 	readOnly,
-	value,
-	handleChange,
-	handleClearValue,
 	type,
 	ariaLabel,
-	isRequired,
 	canClear,
 	placeHolder,
 	labelKey,
 	...props
 }) {
 	const textInput = useRef(null); //  reference to the input field
+	const [field, meta] = useField(props);
+	const { value = '' } = field;
+	const { touched, error } = meta;
+	const isInValid = touched && error;
+	const { setFieldValue } = useFormikContext();
 
 	/**
 	 * Triggered on click of CLEAR icon.
 	 * Clears the input field and sets the focus on the input field.
 	 */
 	const clearField = () => {
-		handleClearValue();
+		setFieldValue(field.name, '');
 		textInput.current.focus();
 	};
 
@@ -45,17 +47,13 @@ function TextInput({
 					id={labelKey}
 					type={type}
 					value={value}
-					onChange={handleChange}
-					readOnly={readOnly}
 					aria-label={ariaLabel}
-					required={isRequired}
-					aria-required={isRequired}
 					data-testid="TextInput"
 					ref={textInput}
 					className={clsx({
 						disabled: readOnly,
 					})}
-					data-label-key={labelKey}
+					{...field}
 					{...props}
 				/>
 			</label>
@@ -85,6 +83,7 @@ function TextInput({
 					</div>
 				)
 			}
+			{isInValid && <p className="bokl-text-input--error-text">{error}</p>}
 			{children}
 		</div>
 	);
@@ -92,14 +91,10 @@ function TextInput({
 
 TextInput.propTypes = {
 	children: node,
-	handleChange: func,
-	handleClearValue: func,
 	readOnly: bool,
 	additionalClasses: string,
-	value: string.isRequired,
 	type: oneOf(['text', 'email', 'password', 'number', 'tel', 'search']),
 	ariaLabel: string,
-	isRequired: bool,
 	canClear: bool,
 	placeHolder: string,
 	labelKey: string.isRequired,
@@ -107,13 +102,10 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
 	children: null,
-	handleChange: () => {},
-	handleClearValue: () => {},
 	readOnly: false,
 	additionalClasses: '',
 	type: 'search',
 	ariaLabel: 'TextInput',
-	isRequired: false,
 	canClear: true,
 	placeHolder: '',
 };

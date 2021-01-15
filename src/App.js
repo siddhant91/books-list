@@ -3,12 +3,15 @@ import Home from './pages/home';
 
 // Providers
 import { AppProvider } from './contexts/AppContext';
+import { BookProvider } from './contexts/BookContext';
 
 function App() {
 	return (
 		<AppProvider>
 			<div className="App">
-				<Home />
+				<BookProvider>
+					<Home />
+				</BookProvider>
 			</div>
 		</AppProvider>
 	);
