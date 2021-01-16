@@ -87,13 +87,6 @@ exports[`Matches snapshot 1`] = `
           class="bokl-page-layout__content"
         >
           <div
-            class="bokl-loader bokl-loader--wrapper"
-          >
-            <div
-              class="bokl-loader--container"
-            />
-          </div>
-          <div
             class="bokl-homepage--content"
           >
             <div

@@ -36,7 +36,6 @@ const Home = () => {
 	const [error, setError] = useState('');
 	const [modalStatus, setModalStatus] = useState('');
 
-	console.log(error);
 	const getBooksList = async (searchText) => {
 		try {
 			setLoaderVisible(true);
@@ -89,7 +88,11 @@ const Home = () => {
 					</div>
 				</div>
 				{modalStatus && (
-					<GenericModal modalStatus={modalStatus} handleClose={handleModalClose}>
+					<GenericModal
+						modalStatus={modalStatus}
+						handleClose={handleModalClose}
+						closeIconLabel="Close Modal"
+					>
 						<p className="bokl-text-input--error-text" data-testid="generic-error">
 							{error}
 						</p>
