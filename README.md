@@ -4,6 +4,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Set Up
+
+Run Below command to install node modules
+
+### `yarn install` or `npm i`
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -20,6 +26,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn test -- coverage`
+
+to get the coverage report
 
 ### `yarn build`
 
