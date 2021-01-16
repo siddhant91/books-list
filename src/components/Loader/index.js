@@ -1,3 +1,7 @@
+/**
+ * Generic Loader Component
+ */
+
 // styles
 import './styles.scss';
 

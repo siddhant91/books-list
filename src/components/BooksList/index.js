@@ -1,3 +1,7 @@
+/**
+ * Component to display the book Cards Based on the Data
+ */
+
 import { arrayOf, shape } from 'prop-types';
 
 // Components
@@ -8,6 +12,10 @@ import Card from '../Card';
 import './styles.scss';
 
 const BooksList = ({ booksData }) => {
+	/**
+	 * Generic method to render the details
+	 * @param { label, value }
+	 */
 	const getCardDetails = ({ label, value }) => {
 		return (
 			<p className="bokl-books-listing--list__card--details mb-1">
@@ -17,6 +25,10 @@ const BooksList = ({ booksData }) => {
 		);
 	};
 
+	/**
+	 * Method to loop over the booksData and render the Cards
+	 * if data is empty , display text message
+	 */
 	const getBookCards = () => {
 		if (booksData.length) {
 			const bookCards = booksData.map((book) => {

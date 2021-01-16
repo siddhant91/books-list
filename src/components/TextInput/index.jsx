@@ -1,3 +1,6 @@
+/**
+ * Generic Text Input Component , tied with Formik for validatons
+ */
 import clsx from 'clsx';
 import { bool, node, oneOf, string } from 'prop-types';
 import { useRef } from 'react';

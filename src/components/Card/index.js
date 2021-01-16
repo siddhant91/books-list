@@ -1,4 +1,7 @@
 import clsx from 'clsx';
+/**
+ * Generic Card Component
+ */
 import { node, string } from 'prop-types';
 
 // styles

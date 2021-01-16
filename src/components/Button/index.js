@@ -1,3 +1,6 @@
+/**
+ * Generic Button Component
+ */
 import { node, string, bool, func, oneOf } from 'prop-types';
 import clsx from 'clsx';
 

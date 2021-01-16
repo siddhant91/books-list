@@ -1,3 +1,7 @@
+/**
+ * Generic Modal Component
+ */
+
 import clsx from 'clsx';
 import Modal from 'react-modal';
 import { string, node, bool, func } from 'prop-types';

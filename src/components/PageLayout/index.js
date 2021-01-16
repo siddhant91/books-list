@@ -1,3 +1,6 @@
+/**
+ * Page Layout Component which renders the entire page  with header,left navigation menu and the main Content
+ */
 import clsx from 'clsx';
 import { string, node, arrayOf, shape } from 'prop-types';
 import { useState } from 'react';
@@ -12,9 +15,15 @@ import './styles.scss';
 
 const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 	const [isMenuOpen, toggleMenuState] = useState(false);
+	/**
+	 * Method to toggle the menu State
+	 */
 	const toggleMenu = () => {
 		toggleMenuState(!isMenuOpen);
 	};
+	/**
+	 * Method to render the menu items
+	 */
 	const getMenuItems = () => {
 		const items = menuItems.map((item) => {
 			const { title, icon, isAccordion } = item;
@@ -46,6 +55,9 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 		});
 		return items;
 	};
+	/**
+	 * Method to render the left navigation Menu
+	 */
 	const renderMenu = () => {
 		return (
 			<div

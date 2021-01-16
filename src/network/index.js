@@ -1,5 +1,5 @@
 /**
- * This file will be used for all API calls. WIP
+ * This file will be used for all API calls.
  */
 import axios from 'axios';
 import queryString from 'query-string';

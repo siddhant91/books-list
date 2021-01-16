@@ -1,3 +1,8 @@
+/**
+ * Landing Page of the Books List Application
+ * Sets the App Level by making an Api Call
+ */
+
 import { useContext, useEffect, useState } from 'react';
 
 // Network
@@ -17,6 +22,9 @@ import { BookContext } from '../../contexts/BookContext';
 // Styles
 import './styles.scss';
 
+/**
+ * Local menu Items
+ */
 const menuItems = [
 	{
 		title: 'Content Management',
@@ -36,6 +44,11 @@ const Home = () => {
 	const [error, setError] = useState('');
 	const [modalStatus, setModalStatus] = useState('');
 
+	/**
+	 * Method to fetch the Books List Based on the Search Text
+	 * @param {*} searchText
+	 * On Success Sets the data into context, on faqilure shoows generic Modal
+	 */
 	const getBooksList = async (searchText) => {
 		try {
 			setLoaderVisible(true);
@@ -61,15 +74,24 @@ const Home = () => {
 		}
 	};
 
+	/**
+	 * useEffect to fetch the books , if not available
+	 */
 	useEffect(() => {
 		if (!booksList.length) {
 			getBooksList();
 		}
 	}, []);
 
+	/**
+	 * Method to close the Modal
+	 */
 	const handleModalClose = () => {
 		setModalStatus(false);
 	};
+	/**
+	 * Place Holder to create a New book
+	 */
 	const createNewBook = () => {};
 	return (
 		<div className="bokl-homepage">
