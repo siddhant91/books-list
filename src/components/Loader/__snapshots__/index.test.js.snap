@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bokl-loader bokl-loader--wrapper"
+  >
+    <div
+      class="bokl-loader--container"
+    />
+  </div>
+</DocumentFragment>
+`;

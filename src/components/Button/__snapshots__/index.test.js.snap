@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="primary medium bokl-button-component"
+    data-testid="button"
+    type="button"
+  >
+    Click Me
+  </button>
+</DocumentFragment>
+`;

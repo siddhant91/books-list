@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    action="#"
+    autocomplete="off"
+  >
+    <div
+      class="bokl-text-input"
+    >
+      <label
+        class="d-flex bokl-text-input--label"
+        for="Search For Books"
+      >
+        <span>
+          <i
+            aria-hidden="true"
+            class="fa fa-search"
+          />
+        </span>
+        <input
+          aria-label="TextInput"
+          class=""
+          data-testid="TextInput"
+          id="Search For Books"
+          name="searchText"
+          placeholder="Search"
+          type="search"
+          value=""
+        />
+      </label>
+      <p>
+        Text
+      </p>
+    </div>
+  </form>
+</DocumentFragment>
+`;

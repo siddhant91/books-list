@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bokl-homepage"
+  >
+    <div
+      class="bokl-page-layout"
+    >
+      <div
+        class="bokl-page-layout__menu"
+        data-testid="menu-container"
+      >
+        <button
+          aria-label="open Menu"
+          class="text-left p-0 d-flex align-items-center just-icon icon bokl-button-component"
+          data-testid="toggle-menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="fa fa-bars"
+          />
+          <span
+            class="bokl-page-layout__menu--item-title"
+          >
+            Menu
+          </span>
+        </button>
+        <div
+          class="d-flex flex-column mt-3"
+          data-testid="menu-items"
+        >
+          <button
+            aria-label="Content Management"
+            class="text-left p-0 d-flex align-items-center mt-3 just-icon icon bokl-button-component"
+            data-testid="menu-item-btn"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="fa fa-window-maximize"
+            />
+            <span
+              class="bokl-page-layout__menu--item-title "
+            >
+              Content Management
+              <i
+                aria-hidden="true"
+                class="fa fa-angle-down"
+              />
+            </span>
+          </button>
+          <button
+            aria-label="Courses"
+            class="text-left p-0 d-flex align-items-center mt-3 just-icon icon bokl-button-component"
+            data-testid="menu-item-btn"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="fa fa-file"
+            />
+            <span
+              class="bokl-page-layout__menu--item-title "
+            >
+              Courses
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bokl-page-layout__main"
+      >
+        <header
+          class="bokl-page-layout__header d-flex align-items-center"
+        >
+          <img
+            alt="Logo"
+            class="bokl-page-layout__header--logo"
+            data-testid="logo-img"
+            src="Logo.png"
+          />
+        </header>
+        <main
+          class="bokl-page-layout__content"
+        >
+          <div
+            class="bokl-homepage--content"
+          >
+            <div
+              class="bokl-homepage--content__title d-flex flex-column flex-lg-row justify-content-between"
+            >
+              <h1>
+                Books
+              </h1>
+              <button
+                class="primary medium bokl-button-component"
+                data-testid="create-book"
+                type="button"
+              >
+                Create New Book
+              </button>
+            </div>
+            <div
+              class="bokl-homepage--content__main"
+            >
+              <div
+                class="bokl-search-form"
+              >
+                <form
+                  action="#"
+                  autocomplete="off"
+                  data-testid="searchBook-form"
+                >
+                  <div
+                    class="bokl-text-input"
+                  >
+                    <label
+                      class="d-flex bokl-text-input--label"
+                      for="Search For Books"
+                    >
+                      <span>
+                        <i
+                          aria-hidden="true"
+                          class="fa fa-search"
+                        />
+                      </span>
+                      <input
+                        aria-label="TextInput"
+                        class=""
+                        data-testid="TextInput"
+                        id="Search For Books"
+                        name="searchText"
+                        placeholder="Search"
+                        type="search"
+                        value=""
+                      />
+                    </label>
+                  </div>
+                  <button
+                    class="d-none"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+              <div
+                class="bokl-books-listing"
+              >
+                <h2
+                  class="bokl-books-listing--title"
+                >
+                  All Books
+                </h2>
+                <div
+                  class="bokl-books-listing--list mt-5 d-flex flex-wrap justify-content-between"
+                >
+                  <p>
+                    Sorry no books to Display
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

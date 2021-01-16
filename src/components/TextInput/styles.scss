@@ -1,0 +1,65 @@
+@import '../../styles/main.scss';
+.bokl-text-input {
+	position: relative;
+	display: block;
+	max-width: 345px;
+	margin-bottom: $bokl-spacing-5;
+	&--label {
+		border: none;
+		border-bottom: 1px solid rgba($bokl-color-black, 0.32);
+		padding: $bokl-spacing-2 0;
+	}
+	input {
+		appearance: none;
+		font-size: $bokl-body-font-size;
+		width: 100%;
+		box-sizing: border-box;
+		background: $bokl-color-white-1;
+		border: none;
+		outline: none;
+		font-weight: $bokl-font-weight-normal;
+		margin: 0 $bokl-spacing-1;
+
+		/* clears the 'X' from Internet Explorer */
+		&::-ms-clear,
+		&::-ms-reveal {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+
+		/* clears the 'X' from Chrome */
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+		}
+	}
+
+	&--clear-icon {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		color: $bokl-color-graphite;
+		margin-right: 5px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+	}
+	&--error-text {
+		color: $bokl-color-red;
+	}
+}
+
+// .text-input-component .clear > .clear__icon {
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	border: solid 1px;
+// 	border-radius: 50%;
+// 	height: 14px;
+// 	width: 14px;
+// 	padding: 0 0 2px 1px;
+// }

@@ -1,0 +1,66 @@
+@import '../../styles/main.scss';
+
+.bokl-page-layout {
+	display: flex;
+	box-sizing: border-box;
+	&__menu {
+		height: 100%;
+		width: $bokl-spacing-9;
+		position: fixed;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding: $bokl-spacing-3;
+		box-shadow: 5px 0px 20px -10px $bokl-color-black;
+		z-index: 1;
+		&.open {
+			width: 300px;
+		}
+		.fa {
+			font-size: $bokl-h3-font-size;
+		}
+		&--item-title {
+			margin-left: $bokl-spacing-4;
+			color: $bokl-color-graphite;
+		}
+	}
+	&__header {
+		height: $bokl-spacing-8;
+		overflow: hidden;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+		background-color: $bokl-color-white;
+		box-shadow: 0 5px 20px -10px $bokl-color-black;
+		padding: $bokl-spacing-3;
+		@media only screen and (min-width: $bokl-breakpoint-desktop) {
+			padding-left: $bokl-spacing-5;
+		}
+		&--logo {
+			width: 100px;
+			height: 34px;
+		}
+	}
+	&__main {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		overflow: hidden;
+		margin-left: $bokl-spacing-9;
+		transition: margin-left 0.5s;
+		&.shift-left {
+			margin-left: 300px;
+		}
+		background-color: $bokl-color-white-1;
+	}
+	&__content {
+		margin-top: $bokl-spacing-8;
+		padding: $bokl-spacing-3;
+
+		@media only screen and (min-width: $bokl-breakpoint-desktop) {
+			padding-left: $bokl-spacing-5;
+		}
+	}
+}
