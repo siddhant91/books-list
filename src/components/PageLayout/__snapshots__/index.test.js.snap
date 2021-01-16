@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bokl-page-layout"
+  >
+    <div
+      class="bokl-page-layout__menu"
+      data-testid="menu-container"
+    >
+      <button
+        aria-label="open Menu"
+        class="text-left p-0 d-flex align-items-center just-icon icon bokl-button-component"
+        data-testid="toggle-menu"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="fa fa-bars"
+        />
+        <span
+          class="bokl-page-layout__menu--item-title"
+        >
+          Menu
+        </span>
+      </button>
+    </div>
+    <div
+      class="bokl-page-layout__main"
+    >
+      <header
+        class="bokl-page-layout__header d-flex align-items-center"
+      >
+        <img
+          alt="Logo"
+          class="bokl-page-layout__header--logo"
+          data-testid="logo-img"
+          src="Logo.png"
+        />
+      </header>
+      <main
+        class="bokl-page-layout__content"
+      >
+        <p>
+          this is child node text
+        </p>
+      </main>
+    </div>
+  </div>
+</DocumentFragment>
+`;

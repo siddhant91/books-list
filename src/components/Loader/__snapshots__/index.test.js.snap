@@ -3,10 +3,11 @@
 exports[`Matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="bokl-card"
-    data-testid="bokl-card"
+    class="bokl-loader bokl-loader--wrapper"
   >
-     this is a Card
+    <div
+      class="bokl-loader--container"
+    />
   </div>
 </DocumentFragment>
 `;

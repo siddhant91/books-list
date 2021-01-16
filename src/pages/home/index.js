@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 // Network
 import NetworkUtils from '../../network';
@@ -9,9 +9,11 @@ import Loader from '../../components/Loader';
 import Button from '../../components/Button';
 import BooksList from '../../components/BooksList';
 import SearchBookForm from '../../components/SearchBookForm';
+import GenericModal from '../../components/GenericModal';
 // Context
 import { AppContext } from '../../contexts/AppContext';
 import { BookContext } from '../../contexts/BookContext';
+
 // Styles
 import './styles.scss';
 
@@ -31,7 +33,10 @@ const menuItems = [
 const Home = () => {
 	const [loaderVisible, setLoaderVisible] = useContext(AppContext);
 	const [booksList, setBooksList] = useContext(BookContext);
+	const [error, setError] = useState('');
+	const [modalStatus, setModalStatus] = useState('');
 
+	console.log(error);
 	const getBooksList = async (searchText) => {
 		try {
 			setLoaderVisible(true);
@@ -50,7 +55,8 @@ const Home = () => {
 				}
 			}
 		} catch (e) {
-			console.log(e);
+			setError(e.errorMessage);
+			setModalStatus(true);
 		} finally {
 			setLoaderVisible(false);
 		}
@@ -62,6 +68,10 @@ const Home = () => {
 		}
 	}, []);
 
+	const handleModalClose = () => {
+		setModalStatus(false);
+	};
+	const createNewBook = () => {};
 	return (
 		<div className="bokl-homepage">
 			<PageLayout menuItems={menuItems}>
@@ -69,13 +79,22 @@ const Home = () => {
 				<div className="bokl-homepage--content">
 					<div className="bokl-homepage--content__title d-flex flex-column flex-lg-row justify-content-between">
 						<h1>Books</h1>
-						<Button>Create New Book</Button>
+						<Button handleClick={createNewBook} data-testid="create-book">
+							Create New Book
+						</Button>
 					</div>
 					<div className="bokl-homepage--content__main">
 						<SearchBookForm getBooksList={getBooksList} />
 						<BooksList booksData={booksList} />
 					</div>
 				</div>
+				{modalStatus && (
+					<GenericModal modalStatus={modalStatus} handleClose={handleModalClose}>
+						<p className="bokl-text-input--error-text" data-testid="generic-error">
+							{error}
+						</p>
+					</GenericModal>
+				)}
 			</PageLayout>
 		</div>
 	);

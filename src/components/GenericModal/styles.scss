@@ -1,0 +1,39 @@
+@import '../../styles/main.scss';
+
+.bokl-modal-component {
+	&__overlay {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		background-color: rgba($bokl-color-black, 0.6);
+		z-index: 100;
+	}
+	padding: $bokl-spacing-5;
+	top: 50%;
+	transform: translateY(-50%);
+	position: fixed;
+	background: $bokl-color-white;
+	border-radius: $bokl-spacing-5;
+	width: 90%;
+	@media only screen and (min-width: $bokl-breakpoint-tablet) {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&__btn-close {
+		position: absolute;
+		appearance: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+		right: $bokl-spacing-4;
+		top: $bokl-spacing-4;
+		background: none;
+		@media only screen and (min-width: $bokl-breakpoint-tablet) {
+			right: $bokl-spacing-4;
+			top: $bokl-spacing-2;
+		}
+	}
+}

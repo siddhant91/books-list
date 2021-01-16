@@ -16,15 +16,18 @@ function SearchBookForm({ getBooksList }) {
 					searchText: '',
 				}}
 				validationSchema={Yup.object({
-					searchText: Yup.string().trim().required('please input to search'),
+					searchText: Yup.string().trim().required('please enter text to search'),
 				})}
 				onSubmit={(values) => {
 					getBooksList(values.searchText);
 				}}
 			>
 				{() => (
-					<Form autoComplete="off">
+					<Form autoComplete="off" data-testid="searchBook-form">
 						<TextInput labelKey="Search For Books" name="searchText" placeholder="Search" />
+						<button type="submit" className="d-none">
+							Submit
+						</button>
 					</Form>
 				)}
 			</Formik>

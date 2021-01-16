@@ -2,30 +2,38 @@
 
 exports[`Matches snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="bokl-text-input"
+  <form
+    action="#"
+    autocomplete="off"
   >
-    <label
-      class="d-flex bokl-text-input--label"
-      for="text"
+    <div
+      class="bokl-text-input"
     >
-      <span>
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
+      <label
+        class="d-flex bokl-text-input--label"
+        for="Search For Books"
+      >
+        <span>
+          <i
+            aria-hidden="true"
+            class="fa fa-search"
+          />
+        </span>
+        <input
+          aria-label="TextInput"
+          class=""
+          data-testid="TextInput"
+          id="Search For Books"
+          name="searchText"
+          placeholder="Search"
+          type="search"
+          value=""
         />
-      </span>
-      <input
-        aria-label="TextInput"
-        aria-required="false"
-        class=""
-        data-label-key="text"
-        data-testid="TextInput"
-        id="text"
-        type="search"
-        value="value"
-      />
-    </label>
-  </div>
+      </label>
+      <p>
+        Text
+      </p>
+    </div>
+  </form>
 </DocumentFragment>
 `;

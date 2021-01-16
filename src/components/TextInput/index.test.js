@@ -1,52 +1,80 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
+
+import { Formik, Form } from 'formik';
+
 import TextInput from './index';
 
+afterEach(cleanup);
+
+const renderComponent = ({ initialSearchText = '', readOnly = false } = {}) => {
+	return (
+		<Formik
+			initialValues={{
+				searchText: initialSearchText,
+			}}
+			onSubmit={(values) => {
+				console.log(values.searchText);
+			}}
+		>
+			{() => (
+				<Form autoComplete="off">
+					<TextInput
+						labelKey="Search For Books"
+						name="searchText"
+						placeholder="Search"
+						readOnly={readOnly}
+					>
+						<p>Text</p>
+					</TextInput>
+				</Form>
+			)}
+		</Formik>
+	);
+};
 it('Matches snapshot', () => {
-	const { asFragment } = render(<TextInput labelKey="text" value="value" canClear={false} />);
+	const { asFragment } = render(renderComponent());
 	expect(asFragment()).toMatchSnapshot();
 });
 
 it('Renders children props', () => {
-	const { getByText } = render(
-		<TextInput labelKey="text" value="value" canClear={false}>
-			<p>Text</p>
-		</TextInput>,
-	);
-	expect(getByText('Text')).toBeDefined();
+	const { getByText } = render(renderComponent());
+	expect(getByText('Text')).toBeInTheDocument();
 });
 
 it('Renders value props correctly', () => {
-	const { getByTestId } = render(<TextInput labelKey="text" value="value" canClear={false} />);
-	expect(getByTestId('TextInput').value).toBe('value');
-});
-
-it('Has default handle props', () => {
-	TextInput.defaultProps.handleChange();
-	TextInput.defaultProps.handleClearValue();
-	expect(TextInput.defaultProps.handleChange).toBeDefined();
-	expect(TextInput.defaultProps.handleClearValue).toBeDefined();
+	const { getByTestId } = render(renderComponent({ initialSearchText: 'testSearch' }));
+	expect(getByTestId('TextInput').value).toBe('testSearch');
 });
 
 it('should disable the TextInput', () => {
-	const { getByTestId } = render(<TextInput value="hello" readOnly labelKey="text" />);
+	const { getByTestId } = render(renderComponent({ readOnly: true }));
 	expect(getByTestId('TextInput').readOnly).toBeTruthy();
 });
 
-it('Handles change in TextInput input element', () => {
-	const fn = jest.fn();
-	const { getByTestId } = render(
-		<TextInput labelKey="text" value="" canClear={false} handleChange={fn} />,
-	);
+it('Handles change in TextInput input element', async () => {
+	const { getByTestId, findByTestId } = render(renderComponent({}));
 	const element = getByTestId('TextInput');
 	fireEvent.change(element, { target: { value: 'Value' } });
-	expect(fn).toHaveBeenCalledTimes(1);
+	const newInput = await findByTestId('TextInput');
+	expect(newInput.value).toBe('Value');
 });
 
-it('Handles canClear button interactions', () => {
-	const fn = jest.fn();
-	const { getByTestId } = render(<TextInput value="value" labelKey="text" handleClearValue={fn} />);
+it('Handles canClear button interactions', async () => {
+	const { getByTestId, findByTestId } = render(
+		renderComponent({ initialSearchText: 'testSearch' }),
+	);
 	const element = getByTestId('clear-TextInput');
 	fireEvent.click(element);
+	const newInput = await findByTestId('TextInput');
+	expect(newInput.value).toBe('');
+});
+
+it('Handles canClear button interactions with Enter Key', async () => {
+	const { getByTestId, findByTestId } = render(
+		renderComponent({ initialSearchText: 'testSearch' }),
+	);
+	const element = getByTestId('clear-TextInput');
 	fireEvent.keyPress(element, { key: 'Enter', keyCode: 13 });
-	expect(fn).toHaveBeenCalledTimes(2);
+	const newInput = await findByTestId('TextInput');
+	expect(newInput.value).toBe('');
 });

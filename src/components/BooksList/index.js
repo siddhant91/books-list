@@ -18,14 +18,13 @@ const BooksList = ({ booksData }) => {
 	};
 
 	const getBookCards = () => {
-		console.log('getBookCards---', booksData);
 		if (booksData.length) {
 			const bookCards = booksData.map((book) => {
 				const {
 					volumeInfo: { title, authors = [], publisher = '', publishedDate = '' } = {},
 				} = book;
 				return (
-					<Card additionalClasses="bokl-books-listing--list__card">
+					<Card additionalClasses="bokl-books-listing--list__card" key={title}>
 						<h4 className="bokl-books-listing--list__card--title">{title}</h4>
 						{getCardDetails({
 							label: 'Authors:',

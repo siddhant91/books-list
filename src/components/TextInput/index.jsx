@@ -48,6 +48,7 @@ function TextInput({
 					type={type}
 					value={value}
 					aria-label={ariaLabel}
+					readOnly={readOnly}
 					data-testid="TextInput"
 					ref={textInput}
 					className={clsx({
@@ -83,7 +84,11 @@ function TextInput({
 					</div>
 				)
 			}
-			{isInValid && <p className="bokl-text-input--error-text">{error}</p>}
+			{isInValid && (
+				<p className="bokl-text-input--error-text" data-testid="TextInput-error">
+					{error}
+				</p>
+			)}
 			{children}
 		</div>
 	);

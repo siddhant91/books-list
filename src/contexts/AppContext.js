@@ -14,9 +14,5 @@ const AppProvider = ({ children }) => {
 AppProvider.propTypes = {
 	children: node.isRequired,
 };
-console.log(1);
-setTimeout(() => {
-	console.log(2);
-}, 1000);
 
 export { AppContext, AppProvider };

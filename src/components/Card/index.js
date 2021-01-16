@@ -6,7 +6,7 @@ import './styles.scss';
 
 function Card({ additionalClasses, children, ...rest }) {
 	return (
-		<div className={clsx('bokl-card', additionalClasses)} {...rest}>
+		<div className={clsx('bokl-card', additionalClasses)} {...rest} data-testid="bokl-card">
 			{children}
 		</div>
 	);

@@ -53,14 +53,14 @@
 		&.shift-left {
 			margin-left: 300px;
 		}
+		background-color: $bokl-color-white-1;
 	}
 	&__content {
 		margin-top: $bokl-spacing-8;
 		padding: $bokl-spacing-3;
+
 		@media only screen and (min-width: $bokl-breakpoint-desktop) {
 			padding-left: $bokl-spacing-5;
 		}
-
-		background-color: $bokl-color-white-1;
 	}
 }

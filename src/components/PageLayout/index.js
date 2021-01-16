@@ -25,6 +25,11 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 					appearance="just-icon"
 					size="icon"
 					additionalClasses="text-left p-0 d-flex align-items-center mt-3"
+					key={title}
+					data-testid="menu-item-btn"
+					handleClick={(e) => {
+						console.log(e);
+					}}
 				>
 					<i className={`fa ${icon}`} aria-hidden="true" />
 
@@ -47,6 +52,7 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 				className={clsx('bokl-page-layout__menu', {
 					open: isMenuOpen,
 				})}
+				data-testid="menu-container"
 			>
 				<Button
 					aria-label="open Menu"
@@ -54,11 +60,16 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 					size="icon"
 					additionalClasses="text-left p-0 d-flex align-items-center"
 					handleClick={toggleMenu}
+					data-testid="toggle-menu"
 				>
 					<i className="fa fa-bars" aria-hidden="true" />
 					<span className="bokl-page-layout__menu--item-title">Menu</span>
 				</Button>
-				<div className="d-flex flex-column mt-3">{getMenuItems()}</div>
+				{menuItems.length > 0 && (
+					<div className="d-flex flex-column mt-3" data-testid="menu-items">
+						{getMenuItems()}
+					</div>
+				)}
 			</div>
 		);
 	};
@@ -71,7 +82,12 @@ const PageLayout = ({ additonalClasses, menuItems, children, ...rest }) => {
 				})}
 			>
 				<header className="bokl-page-layout__header d-flex align-items-center">
-					<img className="bokl-page-layout__header--logo" src={LogoImage} alt="Logo" />
+					<img
+						className="bokl-page-layout__header--logo"
+						src={LogoImage}
+						alt="Logo"
+						data-testid="logo-img"
+					/>
 				</header>
 				<main className="bokl-page-layout__content">{children}</main>
 			</div>
